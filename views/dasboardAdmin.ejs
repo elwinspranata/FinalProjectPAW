@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Dashboard Admin</h1>
+  <h2>Data Penumpang</h2>
+  <table border="1" cellpadding="10" cellspacing="0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Created At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% penumpang.forEach((p) => { %>
+        <tr>
+          <td><%= p.id %></td>
+          <td><%= p.username %></td>
+          <td><%= p.email %></td>
+          <td><%= p.phone %></td>
+          <td><%= p.created_at %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aman dan Cepat - Tiket Kereta Api</title>
+    <link rel="stylesheet" href="/home.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #007bff;
+            color: white;
+        }
+        .navbar h1 {
+            margin: 0;
+        }
+        nav a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        main p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .feature-card {
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .feature-card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <h1>Aman dan Cepat</h1>
+        <nav>
+            <a href="/home">Beranda</a>
+            <a href="/booking">Pesan Tiket</a>
+            <a href="/logout" class="btn-logout">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <h2 style="text-align: center;">Keamanan dan Kecepatan Proses Transaksi</h2>
+        <p>Sistem kami menggunakan enkripsi untuk melindungi data Anda. Pembayaran juga diproses melalui mitra terpercaya untuk memastikan keamanan transaksi.</p>
+        <div class="feature-list">
+            <div class="feature-card">
+                <img src="/icons/encryption.png" alt="Ikon Enkripsi">
+                <h3>Enkripsi Data</h3>
+                <p>Seluruh data pengguna dienkripsi untuk menjaga privasi dan keamanan.</p>
+            </div>
+            <div class="feature-card">
+                <img src="/icons/payment.png" alt="Ikon Pembayaran Aman">
+                <h3>Pembayaran Aman</h3>
+                <p>Proses pembayaran dilakukan melalui mitra resmi dan terpercaya.</p>
+            </div>
+            <div class="feature-card">
+                <img src="/icons/speed.png" alt="Ikon Proses Cepat">
+                <h3>Proses Cepat</h3>
+                <p>Konfirmasi dan validasi tiket dilakukan secara real-time.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Kereta Api Indonesia. All rights reserved.</p>
+    </footer>
+</body>
+</html>

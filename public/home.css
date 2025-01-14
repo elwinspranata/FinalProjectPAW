@@ -2,8 +2,9 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f9;
+    font-family: 'Poppins', Arial, sans-serif; /* Gunakan font modern */
+    background-color: #f0f4ff; /* Warna latar yang lembut dan bersih */
+    color: #333;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -13,59 +14,75 @@ main {
     flex-grow: 1;
 }
 
+/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background-color: white;
-    border-bottom: 2px solid #ddd;
+    background-color: #ffffff; /* Warna putih untuk navbar */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .navbar-left {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 .navbar-left img {
     width: 50px;
+    border-radius: 50%; /* Membuat logo berbentuk bulat */
+    border: 2px solid #ffcc00; /* Warna kuning KAI */
 }
 
 .navbar-title {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
+    color: #0073e6; /* Warna biru khas KAI */
 }
 
 .navbar a {
     margin-left: 20px;
     text-decoration: none;
-    color: #333;
+    color: #555;
     font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .navbar a:hover {
     color: #0073e6;
 }
 
-/* Hero section */
+/* Hero Section */
 .hero {
-    background-color: #0056b3;
+    background: linear-gradient(135deg, #0073e6, #ffcc00); /* Gradasi warna khas KAI */
     color: white;
-    padding: 60px 20px;
+    padding: 80px 20px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 12px;
     margin-bottom: 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .hero h1 {
-    font-size: 36px;
+    font-size: 48px; /* Font besar untuk kesan modern */
     margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 .hero p {
     font-size: 18px;
     margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
 }
 
 .hero .btn-primary {
@@ -77,55 +94,62 @@ main {
     font-weight: bold;
     border: none;
     cursor: pointer;
-    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .hero .btn-primary:hover {
     background-color: #ff7700;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05); /* Animasi hover */
 }
 
-/* Feature section */
+/* Features Section */
 .features {
     display: flex;
-    justify-content: space-around;
-    padding: 20px;
-    background-color: #f4f4f9;
-    border-radius: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .feature {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    max-width: 250px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 280px;
     text-align: center;
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature:hover {
-    transform: scale(1.05);
+    transform: scale(1.1); /* Animasi hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .feature h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #0073e6; /* Warna heading fitur */
+    font-weight: bold;
 }
 
 .feature p {
     font-size: 16px;
-    color: #555;
+    color: #666;
+    line-height: 1.6;
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 20px 0;
-    background-color: #0056b3;
+    background-color: #003c91;
     color: white;
-    border-top: 3px solid #00429d;
+    border-top: 3px solid #0073e6;
     margin-top: auto;
 }
 
