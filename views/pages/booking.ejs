@@ -4,145 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pemesanan Tiket Kereta Api</title>
-    <link rel="stylesheet" href="/booking.css">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-        }
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-        }
-        .navbar img.logo {
-            height: 50px;
-            border-radius: 5px;
-        }
-        .navbar-title {
-            margin-left: 10px;
-            font-size: 20px;
-        }
-        nav a {
-            margin: 0 10px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .title {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .form-section {
-            margin-bottom: 20px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            font-weight: 500;
-        }
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-        .class-selection {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-        .class-card {
-            background-color: #f1f1f1;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            cursor: pointer;
-            border: 2px solid transparent;
-        }
-        .class-card.selected {
-            border-color: #007bff;
-            background-color: #e6f0ff;
-        }
-        .seat-map {
-            display: grid;
-            grid-template-columns: repeat(10, 1fr);
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .seat-item {
-            background-color: #f1f1f1;
-            padding: 10px;
-            text-align: center;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .seat-item.selected {
-            background-color: #007bff;
-            color: white;
-        }
-        .btn {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 30px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background-color: #0056b3;
-        }
-        .footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: 30px;
-        }
-    </style>
+    <link rel="stylesheet" href="booking.css">
 </head>
 <body>
-    <header class="navbar">
-        <div class="navbar-left">
-            <img src="/logo-kai.jpg" alt="Logo KAI" class="logo">
-            <h1 class="navbar-title">Kereta Api Indonesia</h1>
-        </div>
-        <nav>
-            <a href="/home">Beranda</a>
-            <a href="/booking">Pesan Tiket</a>
-            <a href="/logout" class="btn-logout">Logout</a>
-        </nav>               
-    </header>
-
     <main>
         <div class="container">
-            <h1 class="title">Pemesanan Tiket Kereta Api</h1>
-
-            <!-- Form Pencarian Keberangkatan -->
-            <section class="form-section">
-                <h2>Pilih Keberangkatan</h2>
-                <form id="booking-form" action="/confirm" method="POST">
+            <!-- Formulir Pemesanan -->
+            <form id="booking-form" action="/confirm" method="POST">
+                <!-- Form Pencarian Keberangkatan -->
+                <section class="form-section">
+                    <h2>Pilih Keberangkatan</h2>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="departure">Stasiun Asal</label>
@@ -157,88 +28,81 @@
                         <label for="date">Tanggal Keberangkatan</label>
                         <input type="date" id="date" name="date" required>
                     </div>
+                </section>
 
-                    <!-- Pemilihan Kelas Kereta -->
-                    <section class="class-selection-section">
-                        <h2>Pilih Kelas Kereta</h2>
-                        <div class="class-selection">
-                            <div class="class-card" data-class="ekonomi" onclick="selectClass('ekonomi')">
-                                <h3>Ekonomi</h3>
-                                <p>Rp 150.000</p>
-                            </div>
-                            <div class="class-card" data-class="bisnis" onclick="selectClass('bisnis')">
-                                <h3>Bisnis</h3>
-                                <p>Rp 250.000</p>
-                            </div>
-                            <div class="class-card" data-class="eksekutif" onclick="selectClass('eksekutif')">
-                                <h3>Eksekutif</h3>
-                                <p>Rp 350.000</p>
-                            </div>
+                <!-- Pemilihan Kelas -->
+                <section class="class-selection-section">
+                    <h2>Pilih Kelas Kereta</h2>
+                    <div class="class-selection">
+                        <div class="class-card" data-class="ekonomi" onclick="selectClass('ekonomi')">
+                            <h3>Ekonomi</h3>
+                            <p>Rp 150.000</p>
                         </div>
-                        <input type="hidden" id="selected-class" name="class" required>
-                    </section>
-
-                    <!-- Pemilihan Kursi -->
-                    <section class="seat-selection-section">
-                        <h2>Pilih Kursi</h2>
-                        <div class="seat-map">
-                            <% for (let i = 1; i <= 40; i++) { %>
-                                <span class="seat-item" data-seat="<%= i %>" onclick="selectSeat(this)"><%= i %></span>
-                            <% } %>
+                        <div class="class-card" data-class="bisnis" onclick="selectClass('bisnis')">
+                            <h3>Bisnis</h3>
+                            <p>Rp 250.000</p>
                         </div>
-                        <input type="hidden" id="selected-seat" name="seat" required>
-                    </section>
-
-                    <!-- Form Data Diri Penumpang -->
-                    <section class="user-details-section">
-                        <h2>Data Diri Penumpang</h2>
-                        <div class="form-group">
-                            <label for="name">Nama Lengkap</label>
-                            <input type="text" id="name" name="name" placeholder="Nama sesuai KTP" required>
+                        <div class="class-card" data-class="eksekutif" onclick="selectClass('eksekutif')">
+                            <h3>Eksekutif</h3>
+                            <p>Rp 350.000</p>
                         </div>
-                        <div class="form-group">
-                            <label for="idNumber">Nomor Identitas</label>
-                            <input type="text" id="idNumber" name="idNumber" placeholder="Nomor KTP/NIK" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Nomor HP</label>
-                            <input type="tel" id="phone" name="phone" placeholder="08xxxx" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="me@contoh.co.id" required>
-                        </div>
-                    </section>
-
-                    <!-- Tombol Pesan Tiket -->
-                    <div style="text-align: center; margin-top: 20px;">
-                        <button type="submit" class="btn">Pesan Tiket</button>
                     </div>
-                </form>
-            </section>
+                    <input type="hidden" id="selected-class" name="class" required>
+                </section>
+
+                <!-- Pemilihan Kursi -->
+                <section class="seat-selection-section">
+                    <h2>Pilih Kursi</h2>
+                    <div class="seat-map">
+                        <% for (let i = 1; i <= 40; i++) { %>
+                            <span class="seat-item" data-seat="<%= i %>" onclick="selectSeat(this)"><%= i %></span>
+                        <% } %>
+                    </div>
+                    <input type="hidden" id="selected-seat" name="seat" required>
+                </section>
+
+                <!-- Data Penumpang -->
+                <section class="user-details-section">
+                    <h2>Data Diri Penumpang</h2>
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" name="name" placeholder="Nama sesuai KTP" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="idNumber">Nomor Identitas</label>
+                        <input type="text" id="idNumber" name="idNumber" placeholder="Nomor KTP/NIK" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Nomor HP</label>
+                        <input type="tel" id="phone" name="phone" placeholder="08xxxx" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="me@contoh.co.id" required>
+                    </div>
+                </section>
+
+                <!-- Tombol Submit -->
+                <div class="btn-container">
+                    <button type="submit" class="btn">Pesan Tiket</button>
+                </div>
+            </form>
         </div>
     </main>
 
     <footer class="footer">
-        <div class="footer-content">
-            <p>Kelompok 3: Elwin Pranata N 022, Ihsan Putra R 041, Ryan Syaputra MA 025, Haris Shihab D 015</p>
-        </div>
+        <p class="footer-content">Kelompok 3: Elwin Pranata N 022, Ihsan Putra R 041, Ryan Syaputra MA 025, Haris Shihab D 015</p>
     </footer>
 
     <script>
         function selectClass(classType) {
-            document.querySelectorAll('.class-card').forEach(card => {
-                card.classList.remove('selected');
-            });
-            const selectedCard = document.querySelector(`[data-class="${classType}"]`);
-            selectedCard.classList.add('selected');
+            document.querySelectorAll('.class-card').forEach(card => card.classList.remove('selected'));
+            document.querySelector(`[data-class="${classType}"]`).classList.add('selected');
             document.getElementById('selected-class').value = classType;
         }
 
         function selectSeat(seatElement) {
-            document.querySelectorAll('.seat-item').forEach(seat => {
-                seat.classList.remove('selected');
-            });
+            document.querySelectorAll('.seat-item').forEach(seat => seat.classList.remove('selected'));
             seatElement.classList.add('selected');
             document.getElementById('selected-seat').value = seatElement.dataset.seat;
         }

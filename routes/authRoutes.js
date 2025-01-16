@@ -11,25 +11,26 @@ router.get('/loginAdmin', (req, res) => {
 // Proses Login Admin
 router.post('/loginAdmin', (req, res) => {
   const { username, password } = req.body;
-  const query = "SELECT * FROM users WHERE username = ?";
-  
-  db.query(query, [username], (err, result) => {
-    if (err) {
-      console.error('Error saat login:', err);
-      return res.status(500).send('Terjadi kesalahan pada server.');
+
+  if (!username || !password) {
+    return res.redirect('/auth/loginAdmin?error=true&message=Username%20dan%20password%20dibutuhkan');
+  }
+
+  db.query("SELECT * FROM admin WHERE username = ?", [username], (err, result) => {
+    if (err || result.length === 0) {
+      return res.redirect('/auth/loginAdmin?error=true&message=Admin%20tidak%20ditemukan');
     }
-    if (result.length === 0) {
-      return res.redirect('/auth/loginAdmin?error=true&message=Admin tidak ditemukan');
-    }
-    
-    bcrypt.compare(password, result[0].password, (err, isMatch) => {
-      if (err) return res.status(500).send('Terjadi kesalahan server.');
-      if (!isMatch) {
-        return res.redirect('/auth/loginAdmin?error=true&message=Password salah');
+
+    const storedPassword = result[0]?.password;
+    bcrypt.compare(password, storedPassword, (err, isMatch) => {
+      if (err || !isMatch) {
+        return res.redirect('/auth/loginAdmin?error=true&message=Password%20salah');
       }
+
       req.session.userId = result[0].id;
       req.session.username = result[0].username;
-      res.redirect('/index');
+      req.session.role = 'admin';
+      res.redirect('/homeAdmin');
     });
   });
 });

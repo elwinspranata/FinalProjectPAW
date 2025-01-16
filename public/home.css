@@ -1,160 +1,143 @@
-/* Reset dan pengaturan dasar */
+/* Gaya untuk seluruh halaman */
 body {
     margin: 0;
-    padding: 0;
-    font-family: 'Poppins', Arial, sans-serif; /* Gunakan font modern */
-    background-color: #f0f4ff; /* Warna latar yang lembut dan bersih */
-    color: #333;
-    min-height: 100vh;
+    font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    background-color: #2e6c43; /* Background hijau untuk seluruh halaman */
 }
 
-main {
-    flex-grow: 1;
+.content {
+    flex: 1;
 }
 
-/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    background-color: #ffffff; /* Warna putih untuk navbar */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    padding: 15px 20px;
+    background-color: #2e6c43;
+    color: white;
 }
 
 .navbar-left {
     display: flex;
     align-items: center;
-    gap: 15px;
 }
 
-.navbar-left img {
-    width: 50px;
-    border-radius: 50%; /* Membuat logo berbentuk bulat */
-    border: 2px solid #ffcc00; /* Warna kuning KAI */
+.navbar img.logo {
+    height: 50px;
+    margin-right: 15px;
 }
 
 .navbar-title {
-    font-size: 22px;
-    font-weight: bold;
-    color: #0073e6; /* Warna biru khas KAI */
-}
-
-.navbar a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #555;
-    font-size: 16px;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.navbar a:hover {
-    color: #0073e6;
-}
-
-/* Hero Section */
-.hero {
-    background: linear-gradient(135deg, #0073e6, #ffcc00); /* Gradasi warna khas KAI */
+    font-size: 24px;
     color: white;
-    padding: 80px 20px;
+    margin: 0;
+}
+
+nav a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Background hijau */
+.hero {
+    background-color: #7daf8e; /* Background hijau */
+    color: white;
     text-align: center;
-    border-radius: 12px;
-    margin-bottom: 40px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    padding: 100px 20px;
 }
 
-.hero h1 {
-    font-size: 48px; /* Font besar untuk kesan modern */
+.hero-content {
+    max-width: 600px;
+    margin: auto;
+}
+
+.hero-content h1 {
+    font-size: 32px;
     margin-bottom: 20px;
-    font-weight: 700;
-    line-height: 1.2;
 }
 
-.hero p {
+.hero-content p {
     font-size: 18px;
     margin-bottom: 30px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.6;
 }
 
-.hero .btn-primary {
-    background-color: #ff9900;
-    color: white;
-    padding: 15px 40px;
-    border-radius: 8px;
-    font-size: 20px;
-    font-weight: bold;
+.btn-primary {
+    background-color: #ffcc00;
+    padding: 12px 30px;
+    color: black;
     border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
     cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.hero .btn-primary:hover {
-    background-color: #ff7700;
-    transform: scale(1.05); /* Animasi hover */
+.btn-primary:hover {
+    background-color: #e6b800;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Features Section */
+/* Gaya untuk fitur */
 .features {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
+    justify-content: space-around;
     padding: 40px 20px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #2e6c43;
+    gap: 20px;
 }
 
 .feature {
-    background-color: white;
+    text-align: center;
+    flex: 1 1 calc(30% - 40px);
+    background-color: #ffcc00;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 280px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 300px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .feature:hover {
-    transform: scale(1.1); /* Animasi hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px) rotate(1deg); /* Efek naik dan sedikit bergoyang */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Bayangan lembut */
 }
 
-.feature h3 {
-    font-size: 22px;
-    margin-bottom: 15px;
-    color: #0073e6; /* Warna heading fitur */
+.feature h3 a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
     font-weight: bold;
+    font-size: 20px;
 }
 
 .feature p {
     font-size: 16px;
-    color: #666;
-    line-height: 1.6;
+    margin-top: 10px;
 }
 
 /* Footer */
-footer {
+.footer {
+    background-color: #333;
+    color: white;
     text-align: center;
     padding: 20px 0;
-    background-color: #003c91;
-    color: white;
-    border-top: 3px solid #0073e6;
     margin-top: auto;
 }
 
 .footer-content p {
     margin: 0;
     font-size: 14px;
-    font-weight: bold;
 }

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - <%= title %></title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 2rem;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: #333;
+      }
+
+      .section {
+        margin-bottom: 3rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #007bff;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 1rem;
+      }
+
+      th, td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: center;
+      }
+
+      th {
+        background-color: #007bff;
+        color: white;
+      }
+
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+
+      input, select, button {
+        width: 100%;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+      }
+
+      button {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      button:hover {
+        background-color: #218838;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Admin Dashboard</h1>
+
+      <!-- Mengelola Jadwal -->
+      <div class="section">
+        <div class="section-title">Mengelola Jadwal</div>
+        <form action="/admin/add-schedule" method="POST">
+          <div class="form-group">
+            <label for="departure">Stasiun Keberangkatan:</label>
+            <input type="text" id="departure" name="departure" placeholder="Masukkan stasiun keberangkatan" required>
+          </div>
+          <div class="form-group">
+            <label for="destination">Stasiun Tujuan:</label>
+            <input type="text" id="destination" name="destination" placeholder="Masukkan stasiun tujuan" required>
+          </div>
+          <div class="form-group">
+            <label for="departure_time">Waktu Keberangkatan:</label>
+            <input type="datetime-local" id="departure_time" name="departure_time" required>
+          </div>
+          <div class="form-group">
+            <label for="train_name">Nama Kereta:</label>
+            <input type="text" id="train_name" name="train_name" placeholder="Masukkan nama kereta" required>
+          </div>
+          <button type="submit">Tambah Jadwal</button>
+        </form>
+
+        <h3>Daftar Jadwal</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Stasiun Keberangkatan</th>
+              <th>Stasiun Tujuan</th>
+              <th>Waktu Keberangkatan</th>
+              <th>Nama Kereta</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% schedules.forEach((schedule, index) => { %>
+              <tr>
+                <td><%= index + 1 %></td>
+                <td><%= schedule.departure %></td>
+                <td><%= schedule.destination %></td>
+                <td><%= schedule.departure_time %></td>
+                <td><%= schedule.train_name %></td>
+                <td>
+                  <form action="/admin/delete-schedule/<%= schedule.id %>" method="POST" style="display:inline;">
+                    <button type="submit" style="background-color: #dc3545;">Hapus</button>
+                  </form>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Memverifikasi Pembayaran -->
+      <div class="section">
+        <div class="section-title">Memverifikasi Pembayaran</div>
+        <h3>Daftar Pembayaran yang Perlu Diverifikasi</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama Pemesan</th>
+              <th>Kode Pemesanan</th>
+              <th>Jumlah Pembayaran</th>
+              <th>Status</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% payments.forEach((payment, index) => { %>
+              <tr>
+                <td><%= index + 1 %></td>
+                <td><%= payment.customer_name %></td>
+                <td><%= payment.booking_code %></td>
+                <td>Rp <%= payment.amount.toLocaleString() %></td>
+                <td><%= payment.status === 'pending' ? 'Belum Diverifikasi' : 'Terverifikasi' %></td>
+                <td>
+                  <% if (payment.status === 'pending') { %>
+                    <form action="/admin/verify-payment/<%= payment.id %>" method="POST" style="display:inline;">
+                      <button type="submit">Verifikasi</button>
+                    </form>
+                  <% } else { %>
+                    <span>Sudah Diverifikasi</span>
+                  <% } %>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

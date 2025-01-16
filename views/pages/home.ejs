@@ -4,109 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beranda - Pemesanan Tiket Kereta Api</title>
-    <link rel="stylesheet" href="/home.css">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-        }
-        .navbar img.logo {
-            height: 50px;
-            border-radius: 5px;
-        }
-        .navbar-title {
-            margin-left: 10px;
-            font-size: 20px;
-        }
-        nav a {
-            margin: 0 10px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .hero {
-            background: url('/kereta-bg.jpg') no-repeat center center;
-            background-size: cover;
-            color: white;
-            text-align: center;
-            padding: 80px 20px;
-        }
-        .hero-content h1 {
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-        .hero-content p {
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-        .btn-primary {
-            background-color: #ffcc00;
-            padding: 12px 30px;
-            color: black;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            font-weight: bold;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .btn-primary:hover {
-            background-color: #e6b800;
-        }
-        .features {
-            display: flex;
-            justify-content: space-around;
-            padding: 40px 20px;
-            background-color: #f8f9fa;
-        }
-        .feature {
-            text-align: center;
-            width: 30%;
-        }
-        .feature h3 a {
-            text-decoration: none;
-            color: #007bff;
-        }
-        .feature h3 a:hover {
-            text-decoration: underline;
-        }
-        .feature p {
-            font-size: 16px;
-            margin-top: 10px;
-        }
-        .footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-        }
-    </style>
+    <!-- Link ke file CSS eksternal -->
+    <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <header class="navbar">
-        <div class="navbar-left">
-            <img src="/logo-kai.jpg" alt="Logo KAI" class="logo">
-            <h1 class="navbar-title">Kereta Api Indonesia</h1>
-        </div>
-        <nav>
-            <a href="/home">Beranda</a>
-            <a href="/booking">Pesan Tiket</a>
-            <a href="/" class="btn-logout">Logout</a>
-        </nav>        
-    </header>
-
-    <main>
+    <main class="content">
         <section class="hero">
             <div class="hero-content">
                 <h1>Selamat Datang di Pemesanan Tiket Kereta Api</h1>
@@ -133,7 +35,7 @@
     
     <footer class="footer">
         <div class="footer-content">
-            <p>Kelompok 3: Elwin Pranata N 022, Ihsan Putra R 041, Ryan Syaputra MA 025, Haris Shihab D 015</p>
+            <p>Kelompok 3: Elwin Pranata N 022, Ihsan Putra R 041, Ryan Syaputra MA 025, Haris Shihab D 015 | © 2025 Kereta Api Indonesia. All rights reserved.</p>
         </div>
     </footer>
 </body>

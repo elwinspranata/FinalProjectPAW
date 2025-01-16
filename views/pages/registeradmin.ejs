@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrasi Admin</title>
+    <style>
+      /* Reset dan pengaturan dasar */
+      body {
+        font-family: 'Poppins', Arial, sans-serif;
+        background: linear-gradient(135deg, #007bff, #66ccff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .container {
+        background-color: #fff;
+        padding: 2.5rem 3rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #264653;
+        margin-bottom: 1.8rem;
+        font-size: 1.8rem;
+        font-weight: bold;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        padding: 14px 16px;
+        border: 1.5px solid #ddd;
+        border-radius: 12px;
+        font-size: 1rem;
+        background-color: #f8f9fa;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        outline: none;
+      }
+
+      input[type="text"]:focus,
+      input[type="password"]:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+      }
+
+      button {
+        background: linear-gradient(135deg, #ff7b00, #ff9900);
+        color: white;
+        padding: 14px 0;
+        border: none;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      }
+
+      button:hover {
+        background: linear-gradient(135deg, #ff9900, #ff7b00);
+        transform: scale(1.02);
+        box-shadow: 0 10px 20px rgba(255, 123, 0, 0.4);
+      }
+
+      .footer-text {
+        margin-top: 1.5rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      .footer-text a {
+        color: #007bff;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-text a:hover {
+        color: #0056b3;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Register Admin</h1>
+      <form action="/registeradmin" method="POST">
+        <input type="text" name="username" placeholder="Masukkan Username" required>
+        <input type="password" name="password" placeholder="Masukkan Password" required>
+        <button type="submit">Daftar</button>
+      </form>
+      <div class="footer-text">
+        <p>Sudah punya akun? <a href="/loginAdmin">Login di sini</a></p>
+      </div>
+    </div>
+  </body>
+</html>

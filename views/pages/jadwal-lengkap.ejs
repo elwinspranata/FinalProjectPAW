@@ -4,51 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jadwal Lengkap Perjalanan KAI</title>
-    <link rel="stylesheet" href="/home.css">
     <style>
+        /* Gaya Umum */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #2e6c43;
+            color: white;
+        }
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+        .navbar img.logo {
+            height: 50px;
+            margin-right: 15px;
+        }
+        .navbar-title {
+            font-size: 24px;
+            color: white;
+            margin: 0;
+        }
+        nav a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Gaya Konten Utama */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
         }
+
         th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: center;
-        }
-        th {
-            background-color: #007bff;
-            color: white;
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        .container {
-            max-width: 1200px;
-            margin: auto;
             padding: 20px;
-        }
-        .intro-text {
-            margin-bottom: 20px;
-            font-size: 18px;
             text-align: center;
+            font-size: 18px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2e6c43;
+            color: white;
+            font-size: 20px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2e6c43;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
         }
     </style>
 </head>
 <body>
-    <header class="navbar">
-        <div class="navbar-left">
-            <h1 class="navbar-title">Jadwal Lengkap Perjalanan KAI</h1>
-        </div>
-        <nav>
-            <a href="/home">Beranda</a>
-            <a href="/booking">Pesan Tiket</a>
-            <a href="/logout" class="btn-logout">Logout</a>
-        </nav>
-    </header>
+    <!-- Konten Utama -->
     <main>
         <div class="container">
-            <p class="intro-text">Kami menyediakan jadwal perjalanan kereta api yang lengkap untuk berbagai rute populer di Indonesia:</p>
             <table>
                 <thead>
                     <tr>
@@ -87,8 +141,8 @@
             </table>
         </div>
     </main>
-    <footer>
-        <p>&copy; 2025 Kereta Api Indonesia. All rights reserved.</p>
-    </footer>
+
+    <!-- Footer -->
+    
 </body>
 </html>

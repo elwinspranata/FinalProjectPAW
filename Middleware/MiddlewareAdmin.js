@@ -1,9 +1,17 @@
-// Middleware untuk memeriksa apakah admin sudah login
 module.exports.isAuthenticated = (req, res, next) => {
-    if (!req.session || !req.session.userId) {
-      // Jika tidak ada sesi userId, arahkan ke halaman login admin
-      return res.redirect('/auth/loginAdmin');
+  if (!req.session || !req.session.userId) {
+    // Jika tidak ada session userId, arahkan ke halaman login sesuai role
+    if (req.originalUrl.includes('/admin')) {
+      return res.redirect('/loginAdmin'); // Redirect ke halaman login admin
+    } else {
+      return res.redirect('/'); // Redirect ke halaman login user
     }
-    next(); // Jika sudah login, lanjutkan ke route berikutnya
-  };
-  
+  }
+
+  // Pastikan role ada jika halaman admin
+  if (req.originalUrl.includes('/admin') && req.session.role !== 'admin') {
+    return res.status(403).send('Anda tidak memiliki akses ke halaman ini.');
+  }
+
+  next(); // Jika sudah login dan role sesuai, lanjutkan ke route berikutnya
+};

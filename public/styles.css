@@ -1,99 +1,102 @@
 /* Reset dan Font Global */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #2d6a4f, #99d98c);
-    color: #333;
-  }
-  
-  /* Container Form */
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-  }
-  
-  form {
-    background-color: white;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #004aad;
-    font-size: 26px;
-    font-weight: bold;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-    text-align: left;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 14px;
-    font-weight: 600;
-  }
-  
-  input {
-    width: 100%;
-    padding: 12px;
-    border: 1.5px solid #ccc;
-    border-radius: 10px;
-    font-size: 16px;
-    background-color: #f8f9fa;
-  }
-  
-  input:focus {
-    outline: none;
-    border-color: #004aad;
-    box-shadow: 0 0 10px rgba(0, 86, 179, 0.3);
-  }
-  
-  /* Tombol Submit */
-  button.btn {
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #0083FF, #FFD700);
-    border: none;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  button.btn:hover {
-    background: linear-gradient(135deg, #FFD700, #0083FF);
-    transform: translateY(-4px);
-    box-shadow: 0 10px 20px rgba(0, 131, 255, 0.5);
-  }
-  
-  .footer {
-    margin-top: 20px;
-    font-size: 14px;
-    text-align: center;
-  }
-  
-  .footer a {
-    color: #004aad;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .footer a:hover {
-    color: #ff7b00;
-    text-decoration: underline;
-  }
-  
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #2a9d8f, #e9c46a);
+  color: #333;
+  transition: background 0.5s ease-in-out;
+}
+
+/* Container Form */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+form {
+  background-color: white;
+  padding: 48px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 480px;
+  width: 100%;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #264653;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #555;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  border: 1.5px solid #ddd;
+  border-radius: 12px;
+  font-size: 16px;
+  background-color: #f1f1f1;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #2a9d8f;
+  box-shadow: 0 0 12px rgba(42, 157, 143, 0.5);
+}
+
+/* Tombol Submit */
+button.btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f4a261, #e76f51);
+  border: none;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+button.btn:hover {
+  background: linear-gradient(135deg, #e76f51, #f4a261);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(231, 111, 81, 0.6);
+}
+
+/* Footer */
+.footer {
+  margin-top: 24px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.footer a {
+  color: #264653;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  color: #e63946;
+  text-decoration: underline;
+  transition: color 0.3s ease-in-out;
+}
